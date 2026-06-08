@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "module": "ESNext", // 使用 ESNext 模块系统，支持 import.meta 等特性
+    "target": "ESNext", // 编译目标，支持最新的 JavaScript 特性
+    "lib": ["ESNext", "DOM", "DOM.Iterable"], // 浏览器 + 最新语法的类型库
+    "moduleResolution": "bundler", // 适配 Vite 等打包器的模块解析策略
+    "strict": true, // 启用严格模式，类型检查更严格
+    "esModuleInterop": true, // 启用 ES 模块与 CommonJS 模块的互操作性
+    "skipLibCheck": true, // 跳过依赖库的类型检查，提升性能
+    "baseUrl": "./", // 基础路径
+    "paths": {
+      "@/*": ["src/*"] // 路径别名，引用 src 下的模块
+    },
+    "types": [
+      "node", // Node 类型（vite.config.ts 中的 process 等）
+      "vite/client", // Vite 客户端类型（import.meta.env、静态资源等）
+      "element-plus/global" // Element Plus 全局组件类型
+    ],
+    "resolveJsonModule": true, // 允许导入 JSON 文件作为模块
+    "allowSyntheticDefaultImports": true, // 允许 CommonJS 模块使用默认导入语法
+    "verbatimModuleSyntax": false,
+    "isolatedModules": true, // 每个文件作为独立模块编译
+    "noEmit": true // 仅做类型检查，产物由 Vite 输出
+  },
+  "include": [
+    "env.d.ts", // 环境变量声明文件
+    "src/**/*", // src 下所有 ts 文件
+    "src/**/*.vue", // 所有 Vue 单文件组件
+    "vite.config.ts" // Vite 配置文件
+  ],
+  "exclude": [
+    "node_modules", // 排除依赖目录
+    "dist" // 排除构建产物
+  ]
+}

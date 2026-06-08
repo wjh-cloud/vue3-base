@@ -1,0 +1,3 @@
+// 全局自定义样式（Tailwind 由 main.ts 单独引入，避免与 scss 混用）
+@use 'theme';
+@use 'scrollbar';
